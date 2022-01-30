@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudinary Upload</title>
+</head>
+<body>
+    <h1 id="heading">Cloudinary File Upload</h1>
+    <div class="file-upload">
+        <form action="/api/upload" enctype="multipart/form-data" method="post">
+            <input type="file" name="file" multiple="multiple" /><br/><br/>
+            <input type="submit" value="Upload" />
+        </form>
+        </div>
+
+
+        <div class="container">
+            <% files.forEach(file => {%>
+                <img src=<%= file.url %> height="150" alt="">
+            <%})%>
+        </div>
+</body>
+</html>
