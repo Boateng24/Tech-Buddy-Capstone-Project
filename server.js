@@ -5,6 +5,7 @@ const {cloudinary} = require('./utils/cloudinary');
 
 
 
+const PORT = process.env.PORT || 5000
 
 // initializing express server
 const app = express();
@@ -20,7 +21,7 @@ app.use(express.urlencoded({limit: "100mb", extended:false}))
 // ------ CREATING THE ROUTES FOR THIS PROJECT ie GET REQUEST AND POST REQUEST----//
 
 // creating a get request
-app.get('/api/upload', async(req, res)=> {
+app.get('/api/upload', async (req, res)=> {
 
 // Downloading single file
 // const single_file = await cloudinary.api.resource( '19bdd651c45173f4bba21b1d9dc98bf5');
@@ -34,11 +35,8 @@ console.log(all_files)
 const files = await all_files.resources;
 console.log(files)
 
-
-
 res.render("index", {files});
 })
-
 
 // creating a post request 
 app.post('/api/upload', multerConfig, async (req, res)=> {
@@ -58,7 +56,7 @@ app.post('/api/upload', multerConfig, async (req, res)=> {
 })
 
 
-const PORT = process.env.PORT || 5000
+
 
 app.listen(PORT, ()=>{
     console.log(`Server listening on port ${PORT}`)
